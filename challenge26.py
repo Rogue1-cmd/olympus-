@@ -11,7 +11,7 @@ while flag:
         if (x%i) == 0:
             factors.append(i)
 
-    print("The factors of ",x,"are:")
+    print("The factors of " ,x, "are:")
     for factor in factors:
         print(factor)
 
