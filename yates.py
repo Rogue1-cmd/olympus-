@@ -1,9 +1,9 @@
-#Fisher_Yates Shuffle Algorithm
+#Fisher-Yates Shuffle Algorithm
 import random
 
-#num = list(map(int, input("Enter Multiple integer values to shuffle :\n\t").split())) >>> help out with this!!!!
+num = list(map(int, input("Enter Multiple integer values to shuffle :\n\t").split())) # help out with this!!!!
 
-num = [34, 45, 78, 90, 12, 3, 5]
+#num = [34, 45, 78, 90, 12, 3, 5]
 
 print("Original List: ", str(num))
 
