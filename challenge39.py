@@ -66,9 +66,9 @@ class Population:
             self.population.append(person)
 
     def initial_infection(self, sim):
-        self.infected_count = int(round((sim.infection_percent * sim.population_size), 0))
+        infected_count = int(round((sim.infection_percent * sim.population_size), 0))
 
-        for i in range(self.infected_count):
+        for i in range(infected_count):
             self.population[i].is_infected = True
             self.population[i].days_infected = 1
 
@@ -105,40 +105,41 @@ class Population:
 
         for i in self.population:
             
-            if i.is_infected == True:
+            if i.is_infected:
                 total_infected_count += 1
-                if i.is_dead == True:
+                if i.is_dead:
                     total_dead_count += 1
 
         infected_percent = round(((total_infected_count/sim.population_size)*100), 4)
 
         death_percent = round(((total_dead_count/sim.population_size)*100), 4)
 
-        print("\n\t--------Statistics Summary--------\n")
+        print("\n\t--------Statistics Summary--------")
         print("\n\tDay : ", sim.day_number)
-        print("\n\tPercent Infected: ", infected_percent)
-        print("\n\tPercent Dead: ", death_percent)
+        print("\n\tPercent Infected: ", infected_percent, "%")
+        print("\n\tPercent Dead: ", death_percent, "%")
         print("\n\tTotal Infected: ", total_infected_count)
         print("\n\tTotal Dead: ", total_dead_count)
 
     def graphics(self):
-        self.status = []
+        status = []
         for i in self.population:
             if i.is_dead:
                 char = "X"
             else:
-                if i.is_infected == False:
+                if i.is_infected:
                     char = "I"
                 else:
                     char = "O"
-            self.status.append(char)
+            status.append(char)
 
-        for i in self.status:
-            print(i)
+        for i in status:
+            print(i, end = "-") 
 
-        print("\nX- Dead", "\nI - Infected", "\nO - Healthy")
+        print("\nO - Healthy    ", "I - Infected    ", "X- Dead")
 
 
+#Main code
 sim = Simulation()
 population = Population(sim)
 
@@ -149,13 +150,13 @@ population.graphics()
 input("\nPress enter to begin simulation")
 
 for i in range(1, sim.sim_days):
-    population.spread_infection()
-    population.update()
-    population.display_statistics()
+    population.spread_infection(sim)
+    population.update(sim)
+    population.display_statistics(sim)
     population.graphics()
 
     if i != sim.sim_days:
-        prompt = input("\mPress enter to move to the nex day of simulation.")
+        prompt = input("\nPress enter to move to the next day of simulation.")
 
 
 
