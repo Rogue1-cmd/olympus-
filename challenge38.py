@@ -67,12 +67,12 @@ class Fire(Pykemon):
         enemy.current_health -= damage
 
     def move_info(self):
-        print("\t-----",self.name, "Moves-----")
+        print("\t-----",self.name, "'s Moves-----")
 
-        print("\nScratch:\n\t-- 15 to 25 damage points (Efficient attack.)",\
-             "\nEmber:\n\t-- 0 to 50 damage points (Risky attack.)",\
-             "\nLight:\n\t-- Heal your Pykemon 15 to 25 health points (Restorative)",\
-             "\nFire Blast:\n\t-- MASSIVE damage to GRASS type Pykemon (powerful FIRE based attack...)")  
+        print("\nScratch:\t-- 15 to 25 damage points (Efficient attack.)",\
+             "Ember:\t-- 0 to 50 damage points (Risky attack.)",\
+             "Light:\t-- Heal your Pykemon 15 to 25 health points (Restorative)",\
+             "Fire Blast:\t-- MASSIVE damage to GRASS type Pykemon (powerful FIRE based attack...)")  
 
 
 
@@ -99,11 +99,11 @@ class Water(Pykemon):
         enemy.current_health -= damage
 
     def move_info(self):
-        print("\t-----", self.name, "Moves-----")
-        print("\nBite:\n\t-- 15 to 25 damage points (Efficient attack.)",\
-             "\nSplash:\n\t-- 0 to 50 damage points (Risky attack.)",\
-             "\nDive:\n\t-- Heal your Pykemon withs 15 to 25 health points (Restorative)",\
-             "\nWater Cannon:\n\t-- MASSIVE damage to Fire type Pykemon (powerful water based attack...)")  
+        print("\t-----", self.name, "'s Moves-----")
+        print("\nBite:\t-- 15 to 25 damage points (Efficient attack.)",\
+             "Splash:\t-- 0 to 50 damage points (Risky attack.)",\
+             "Dive:\t-- Heal your Pykemon withs 15 to 25 health points (Restorative)",\
+             "Water Cannon:\t-- MASSIVE damage to Fire type Pykemon (powerful water based attack...)")  
                     
 
 
@@ -130,11 +130,11 @@ class Grass(Pykemon):
         self.current_health -= damage
 
     def move_info(self):
-        print("\t-----", self.name, "Moves-----")
-        print("\nVine Whip:\n\t-- 15 to 25 damage points (Efficient attack.)",\
-             "\nWrap:\n\t-- 0 to 50 damage points (Risky attack.)",\
-             "\nGrow:\n\t-- Heal your Pykemon withs 15 to 25 health points (Restorative)",\
-             "\nLeaf Blade:\n\t-- MASSIVE damage to Water type Pykemon (powerful Grass based attack...)")
+        print("\t-----", self.name, "'s Moves-----")
+        print("\nVine Whip:\t-- 15 to 25 damage points (Efficient attack.)",\
+             "\nWrap:\t-- 0 to 50 damage points (Risky attack.)",\
+             "\nGrow:\t-- Heal your Pykemon withs 15 to 25 health points (Restorative)",\
+             "\nLeaf Blade:\t-- MASSIVE damage to Water type Pykemon (powerful Grass based attack...)")
 
              
         
@@ -180,7 +180,9 @@ class Game():
 
         for starter in starters:
             starter.show_stats()
+            time.sleep(1)
             starter.move_info()
+            time.sleep(2)
 
         print("\nThe professor presents you with 3 Pykemons")
         print("\nPress \n\t1.", starters[0].name ,"\n\t2.", starters[1].name , "\n\t3.", starters[2].name)
@@ -253,11 +255,11 @@ class Game():
 #Main Code
 print("\t-------Welcome to the Pykemon Simulator------.\
       \n---Prof Pete is gonna give you your first Pykemon--- \
-      \n\n----There are three options to choose from---\n")
+      \n----There are three options to choose from---\n")
 
 input("Press Enter to Continue")
 
-time.sleep(3)
+time.sleep(2)
 
 playing_main = True
 while playing_main:
