@@ -1,27 +1,34 @@
 #Epidemic Outbreak Terminal
 import random
+import time
 
 class Simulation:
     def __init__(self):
         self.day_number = 1
 
-        print("\n I will need the size of population")
+        print("\n       I will need the size of population")
         self.population_size = int(input("\nEnter population size: "))
+        print("\n")
 
-        print("\n Initially infected percentage of the population")
+        print("\n       Initially infected percentage of the population")
         self.infection_percent = int(input("\nEnter population size intially infected: "))/100
+        print("\n")
 
-        print("\nI will need the probability that an individual may get infected: ")
+        print("\n       I will need the probability that an individual may get infected: ")
         self.infection_probability = float(input("\nEnter infection probability: "))
+        print("\n")
 
-        print("\nI will need information about how long the infection will last")
+        print("\n       I will need information about how long the infection will last")
         self.infection_duration = int(input("\nEnter how long the infection lasts (in days): "))
+        print("\n")
 
-        print("\nI will need the mortality rate of the infection.")
+        print("\n       I will need the mortality rate of the infection.")
         self.mortality_rate = float(input("\nEnter the mortality rate of the infection: "))
+        print("\n")
 
-        print("\nThe simulation can only run for a specified period of time")
+        print("\n       The simulation can only run for a specified period of time")
         self.sim_days = int(input("\nEnter how long you would like the simulation to run: "))
+        print("\n")
 
 
 
@@ -116,6 +123,7 @@ class Population:
 
         print("\n\t--------Statistics Summary--------")
         print("\n\tDay : ", sim.day_number)
+        print("\n\tPopulation : ", sim.population_size)
         print("\n\tPercent Infected: ", infected_percent, "%")
         print("\n\tPercent Dead: ", death_percent, "%")
         print("\n\tTotal Infected: ", total_infected_count)
@@ -135,8 +143,9 @@ class Population:
 
         for i in status:
             print(i, end = "-") 
+            
 
-        print("\nO - Healthy    ", "I - Infected    ", "X- Dead")
+        print("\nO : Healthy    ", "I : Infected    ", "X : Dead")
 
 
 #Main code
@@ -145,6 +154,7 @@ population = Population(sim)
 
 population.initial_infection(sim)
 population.display_statistics(sim)
+time.sleep(3)
 population.graphics()
 
 input("\nPress enter to begin simulation")
@@ -153,10 +163,13 @@ for i in range(1, sim.sim_days):
     population.spread_infection(sim)
     population.update(sim)
     population.display_statistics(sim)
+    time.sleep(9)
     population.graphics()
+    time.sleep(3)
 
     if i != sim.sim_days:
         prompt = input("\nPress enter to move to the next day of simulation.")
+        
 
 
 
