@@ -5,7 +5,7 @@ num = list(map(int, input("Enter Multiple integer values to shuffle :\n\t").spli
 
 #num = [34, 45, 78, 90, 12, 3, 5]
 
-print("Original List: ", str(num))
+print("\n\tOriginal List: ", str(num))
 
 for i in range(len(num)-1, 0, -1):
 
@@ -13,4 +13,4 @@ for i in range(len(num)-1, 0, -1):
 
     num[i], num[j] = num[j], num[i] #swap arr[i] with element at random index
 
-print("Shuffled list:", str(num))
+print("\n\tShuffled list:", str(num), "\n")
