@@ -1,6 +1,8 @@
 #Epidemic Outbreak Terminal
 import random
 import time
+import colorama
+from colorama import Fore
 
 class Simulation:
     def __init__(self):
@@ -121,13 +123,13 @@ class Population:
 
         death_percent = round(((total_dead_count/sim.population_size)*100), 4)
 
-        print("\n\t--------Statistics Summary--------")
-        print("\n\tDay : ", sim.day_number)
-        print("\n\tPopulation : ", sim.population_size)
-        print("\n\tPercent Infected: ", infected_percent, "%")
-        print("\n\tPercent Dead: ", death_percent, "%")
-        print("\n\tTotal Infected: ", total_infected_count)
-        print("\n\tTotal Dead: ", total_dead_count)
+        print(Fore.WHITE+ "\n\t--------Statistics Summary--------")
+        print(Fore.BLUE+"\n\tDay : ", sim.day_number)
+        print(Fore.BLUE+"\n\tPopulation : ", sim.population_size)
+        print(Fore.BLUE+"\n\tPercent Infected: ", infected_percent, "%")
+        print(Fore.BLUE+"\n\tPercent Dead: ", death_percent, "%")
+        print(Fore.BLUE+"\n\tTotal Infected: ", total_infected_count)
+        print(Fore.BLUE+"\n\tTotal Dead: ", total_dead_count)
 
     def graphics(self):
         status = []
@@ -142,13 +144,15 @@ class Population:
             status.append(char)
 
         for i in status:
-            print(i, end = "-") 
+            print(Fore.MAGENTA+ i, end = " - ") 
             
 
         print("\nO : Healthy    ", "I : Infected    ", "X : Dead")
 
 
 #Main code
+print(Fore.LIGHTRED_EX + "Welcome to Epidemic Terminal")
+time.sleep(0.5)
 sim = Simulation()
 population = Population(sim)
 
@@ -163,7 +167,7 @@ for i in range(1, sim.sim_days):
     population.spread_infection(sim)
     population.update(sim)
     population.display_statistics(sim)
-    time.sleep(9)
+    time.sleep(4)
     population.graphics()
     time.sleep(3)
 
